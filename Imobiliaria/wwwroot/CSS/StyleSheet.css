@@ -27,10 +27,10 @@ body {
     color: white;
 }
 
-.header__link:hover {
-    text-decoration: underline;
-    color: lightgrey;
-}
+    .header__link:hover {
+        text-decoration: underline;
+        color: lightgrey;
+    }
 
 /* Main Content */
 .main {
@@ -141,15 +141,82 @@ tr:nth-child(even) {
     color: #666;
 }
 
-/* Back button */
-.btn-primary.client-details__back-button {
-    background-color: #04AA6D;
-    color: white;
+/* Form Styles */
+form {
+    max-width: 50rem;
+    margin: 2rem auto;
+    padding: 2rem;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.control-label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+
+.form-control {
+    width: 100%;
+    padding: 0.75rem;
+    font-size: 1.6rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.text-danger {
+    color: red;
+    font-size: 1.4rem;
+}
+
+/* Base Button Style */
+.btn {
     padding: 0.5rem 1rem;
     text-decoration: none;
     border-radius: 5px;
+    font-size: 1.6rem;
+    display: inline-block;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
-.btn-primary.client-details__back-button:hover {
-    background-color: #037d54;
+/* Back Button */
+.btn-primary.client-details__back-button {
+    background-color: #04AA6D;
+    color: white;
+}
+
+    .btn-primary.client-details__back-button:hover {
+        background-color: #037d54;
+    }
+
+/* Edit Button */
+.btn-edit {
+    background-color: dodgerblue;
+    color: white;
+}
+
+    .btn-edit:hover {
+        background-color: #1a5dbb;
+    }
+
+/* Delete Button */
+.btn-delete {
+    background-color: crimson;
+    color: white;
+}
+
+    .btn-delete:hover {
+        background-color: #9f1b31;
+    }
+
+/* Form Button Group */
+.form-group .btn {
+    margin-right: 1rem;
 }
