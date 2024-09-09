@@ -1,0 +1,51 @@
+﻿@model Client
+
+<h1 class="client-details__title">@Model.FullName</h1>
+
+<section class="client-details__info">
+    <h2 class="client-details__subtitle">Informações do Cliente</h2>
+    <div class="client-details__field">
+        <strong class="client-details__label">Id:</strong>
+        <span class="client-details__value">@Model.Id</span>
+    </div>
+    <div class="client-details__field">
+        <strong class="client-details__label">Nome Completo:</strong>
+        <span class="client-details__value">@Model.FullName</span>
+    </div>
+    <div class="client-details__field">
+        <strong class="client-details__label">Email:</strong>
+        <span class="client-details__value">@Model.Email</span>
+    </div>
+</section>
+
+<section class="client-details__properties">
+    <h2 class="client-details__subtitle">Propriedades Associadas</h2>
+    @if (Model.Properties.Any())
+    {
+        <table class="table table--properties">
+            <thead class="table__header">
+                <tr class="table__row">
+                    <th class="table__cell">Id</th>
+                    <th class="table__cell">Endereço</th>
+                    <th class="table__cell">Preço</th>
+                </tr>
+            </thead>
+            <tbody class="table__body">
+                @foreach (var property in Model.Properties)
+                {
+                    <tr class="table__row">
+                        <td class="table__cell">@property.Id</td>
+                        <td class="table__cell">@property.Address</td>
+                        <td class="table__cell">@property.Price</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+    else
+    {
+        <p class="client-details__no-properties">Não há propriedades associadas a este cliente.</p>
+    }
+</section>
+
+<a href="/" class="btn btn-primary client-details__back-button">Voltar para a pagina principal</a>
