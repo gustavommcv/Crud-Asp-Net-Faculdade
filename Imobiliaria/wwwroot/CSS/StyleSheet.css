@@ -142,7 +142,7 @@ tr:nth-child(even) {
 }
 
 /* Form Styles */
-form {
+.form-edit {
     max-width: 50rem;
     margin: 2rem auto;
     padding: 2rem;
@@ -192,9 +192,9 @@ form {
     color: white;
 }
 
-    .btn-primary.client-details__back-button:hover {
-        background-color: #037d54;
-    }
+.btn-primary.client-details__back-button:hover {
+    background-color: #037d54;
+}
 
 /* Edit Button */
 .btn-edit {
@@ -202,9 +202,9 @@ form {
     color: white;
 }
 
-    .btn-edit:hover {
-        background-color: #1a5dbb;
-    }
+.btn-edit:hover {
+    background-color: #1a5dbb;
+}
 
 /* Delete Button */
 .btn-delete {
@@ -212,9 +212,15 @@ form {
     color: white;
 }
 
-    .btn-delete:hover {
-        background-color: #9f1b31;
-    }
+.btn-delete:hover {
+    background-color: #9f1b31;
+}
+
+/* Link Button */
+.btn-link-property {
+    background-color: cornflowerblue;
+    color: white;
+}
 
 /* Form Button Group */
 .form-group .btn {

@@ -1,4 +1,4 @@
-﻿@model Imobiliaria.Models.Client
+﻿@model Client
 
 <h1 class="client-details__title">@Model.FullName</h1>
 
@@ -49,5 +49,6 @@
 </section>
 
 <a asp-controller="Home" asp-action="Index" class="btn btn-primary client-details__back-button">Voltar para a pagina principal</a>
+<a asp-action="LinkProperty" asp-route-id="@Model.Id" class="btn btn-link-property">Vincular Nova Propriedade</a>
 <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-edit">Editar</a>
 <a asp-action="Delete" asp-route-id="@Model.Id" class="btn btn-delete">Deletar</a>

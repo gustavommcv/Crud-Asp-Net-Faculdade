@@ -39,6 +39,13 @@
             Properties.Add(new Property { Id = 8, Address = "505 Walnut St", Price = 600000, ClientId = 8 });
             Properties.Add(new Property { Id = 9, Address = "606 Pinecrest Dr", Price = 650000, ClientId = 9 });
             Properties.Add(new Property { Id = 10, Address = "707 Willow Way", Price = 700000, ClientId = 10 });
+            
+            // Propriedades sem cliente associado
+            Properties.Add(new Property { Id = 11, Address = "808 Spruce St", Price = 750000, ClientId = 0 });
+            Properties.Add(new Property { Id = 12, Address = "909 Aspen Ct", Price = 800000, ClientId = 0 });
+            Properties.Add(new Property { Id = 13, Address = "1010 Fir Dr", Price = 850000, ClientId = 0 });
+            Properties.Add(new Property { Id = 14, Address = "1111 Redwood Blvd", Price = 900000, ClientId = 0 });
+            Properties.Add(new Property { Id = 15, Address = "1212 Cypress Ln", Price = 950000, ClientId = 0 });
 
             // Adicionando Contratos
             Contracts.Add(new Contract { Id = 1, ClientId = 1, PropertyId = 1, ContractDate = DateTime.Now.AddMonths(-6) });
@@ -97,8 +104,6 @@
                 Clients.Remove(client);
             }
         }
-
-
 
         public Property GetPropertyById(int id)
         {

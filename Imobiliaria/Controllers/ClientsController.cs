@@ -70,6 +70,32 @@ namespace Imobiliaria.Controllers
             return View(model);
         }
 
+        // Add a property to a client
+        [HttpGet]
+        [Route("[action]/{id:int}")]
+        public IActionResult LinkProperty(int id)
+        {
+            ViewData["ClientId"] = id;
+            return View(_context.Properties);
+        }
+
+        // (using POST for simplicity in this case)
+        [HttpPost]
+        [Route("[action]/{id:int}")]
+        public IActionResult LinkProperty(int clientId, int propertyId)
+        {
+            var client = _context.GetClientById(clientId);
+            var property = _context.Properties.FirstOrDefault(p => p.Id == propertyId);
+
+            if (client == null  || property == null) { return NotFound(); }
+
+            client.Properties.Add(property);
+            property.ClientId = client.Id;
+            property.Client = client;
+
+            return RedirectToAction("Index", "Home");
+        }
+
         // Delete
         [HttpGet]
         [Route("[action]/{id:int}")]
