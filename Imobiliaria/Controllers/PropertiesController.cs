@@ -37,21 +37,9 @@ namespace Imobiliaria.Controllers
             return View(model);
         }
 
-            // Update
-        public IActionResult Edit() 
-        {
-            return View();
-        }
-
-        // Delete
-        public IActionResult Delete() 
-        {
-            return RedirectToAction("Index");
-        }
-
         // Read
         [Route("[action]/{id:int}")]
-        public IActionResult Details(int id) 
+        public IActionResult Details(int id)
         {
             var property = _context.Properties.FirstOrDefault(p => p.Id == id);
             if (property == null)
@@ -61,14 +49,53 @@ namespace Imobiliaria.Controllers
 
             var contracts = _context.Contracts.Where(p => p.Id == id).ToList();
 
-            var viewModel = new PropertyDetailsViewModel {
+            var viewModel = new PropertyDetailsViewModel
+            {
                 Property = property,
                 Contracts = contracts
             };
 
-            Console.WriteLine(viewModel.Property.ToString());
-
             return View(viewModel);
+        }
+
+        // Update
+        [HttpGet]
+        [Route("[action]/{id:int}")]
+        public IActionResult Edit(int id) 
+        {
+            Console.WriteLine(id);
+            return View();
+        }
+
+        // (using POST for simplicity in this case)
+        [HttpPost]
+        [Route("[action]/{id:int}")]
+        public IActionResult Edit(Property model)
+        {
+            return View(model);
+        }
+
+        // Delete
+        [HttpGet]
+        [Route("[action]/{id:int}")]
+        public IActionResult Delete(int id) 
+        {
+            var property = _context.Properties.FirstOrDefault(_ => _.Id == id);
+
+            if (property == null)
+            {
+                return NotFound();
+            }
+
+            return View(property);
+        }
+
+        [HttpPost]
+        [Route("[action]/{id:int}")]
+        public IActionResult Delete(Property model) {
+            _context.RemoveProperty(model.Id);
+
+            return RedirectToAction("Index", "Home");
         }
     }
 }

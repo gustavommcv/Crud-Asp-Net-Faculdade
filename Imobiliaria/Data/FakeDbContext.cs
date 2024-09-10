@@ -101,8 +101,18 @@
         public void RemoveProperty(int id)
         {
             var property = GetPropertyById(id);
+
             if (property != null)
             {
+                // Disassociates the property from its client
+                var clientId = (int) property.ClientId;
+                if (clientId != 0)
+                {
+                    var client = GetClientById(clientId);
+                    client.Properties.Remove(property);
+                }
+
+                // Remove the property
                 Properties.Remove(property);
             }
         }
