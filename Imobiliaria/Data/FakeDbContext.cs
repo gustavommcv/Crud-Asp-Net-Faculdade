@@ -29,16 +29,16 @@
             Clients.Add(new Client { Id = 10, FirstName = "Olivia", LastName = "Thomas", Email = "olivia.thomas@example.com" });
 
             // Adicionando Propriedades
-            Properties.Add(new Property { Id = 1, Address = "123 Main St", Price = 250000, ClientId = 1 });
-            Properties.Add(new Property { Id = 2, Address = "456 Maple Ave", Price = 300000, ClientId = 1 });
-            Properties.Add(new Property { Id = 3, Address = "789 Oak Dr", Price = 350000, ClientId = 3 });
-            Properties.Add(new Property { Id = 4, Address = "101 Pine Rd", Price = 400000, ClientId = 4 });
-            Properties.Add(new Property { Id = 5, Address = "202 Birch Ln", Price = 450000, ClientId = 5 });
-            Properties.Add(new Property { Id = 6, Address = "303 Cedar Blvd", Price = 500000, ClientId = 6 });
-            Properties.Add(new Property { Id = 7, Address = "404 Elm St", Price = 550000, ClientId = 7 });
-            Properties.Add(new Property { Id = 8, Address = "505 Walnut St", Price = 600000, ClientId = 8 });
-            Properties.Add(new Property { Id = 9, Address = "606 Pinecrest Dr", Price = 650000, ClientId = 9 });
-            Properties.Add(new Property { Id = 10, Address = "707 Willow Way", Price = 700000, ClientId = 10 });
+            Properties.Add(new Property { Id = 1, Address = "123 Main St", Price = 250000, ClientId = 1, Client= GetClientById(1) });
+            Properties.Add(new Property { Id = 2, Address = "456 Maple Ave", Price = 300000, ClientId = 1, Client = GetClientById(1) });
+            Properties.Add(new Property { Id = 3, Address = "789 Oak Dr", Price = 350000, ClientId = 3, Client = GetClientById(3) });
+            Properties.Add(new Property { Id = 4, Address = "101 Pine Rd", Price = 400000, ClientId = 4, Client = GetClientById(4) });
+            Properties.Add(new Property { Id = 5, Address = "202 Birch Ln", Price = 450000, ClientId = 5, Client = GetClientById(5) });
+            Properties.Add(new Property { Id = 6, Address = "303 Cedar Blvd", Price = 500000, ClientId = 6, Client = GetClientById(6) });
+            Properties.Add(new Property { Id = 7, Address = "404 Elm St", Price = 550000, ClientId = 7, Client = GetClientById(7) });
+            Properties.Add(new Property { Id = 8, Address = "505 Walnut St", Price = 600000, ClientId = 8, Client = GetClientById(8) });
+            Properties.Add(new Property { Id = 9, Address = "606 Pinecrest Dr", Price = 650000, ClientId = 9, Client = GetClientById(9) });
+            Properties.Add(new Property { Id = 10, Address = "707 Willow Way", Price = 700000, ClientId = 10, Client = GetClientById(10) });
 
             // Adicionando Contratos
             Contracts.Add(new Contract { Id = 1, ClientId = 1, PropertyId = 1, ContractDate = DateTime.Now.AddMonths(-6) });
@@ -88,6 +88,13 @@
 
         public void AddProperty(Property property)
         {
+            // Find the largest current ID
+            int nextId = Properties.Any() ? Properties.Max(p => p.Id) + 1 : 1;
+
+            // Assign the next ID to the new customer
+            property.Id = nextId;
+
+            // Add the new customer to the list
             Properties.Add(property);
         }
 

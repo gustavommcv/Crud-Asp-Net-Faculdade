@@ -1,4 +1,6 @@
-﻿namespace Imobiliaria.Models
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace Imobiliaria.Models
 {
     public class Contract
     {
@@ -8,5 +10,7 @@
         public int PropertyId { get; set; }
         public Property? Property { get; set; }
         public DateTime ContractDate { get; set; }
+        public DateTime? dateTime { get; set; }
+
     }
 }
