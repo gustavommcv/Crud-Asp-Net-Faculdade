@@ -48,16 +48,16 @@
             Properties.Add(new Property { Id = 15, Address = "1212 Cypress Ln", Price = 950000, ClientId = 0 });
 
             // Adicionando Contratos
-            Contracts.Add(new Contract { Id = 1, ClientId = 1, PropertyId = 1, ContractDate = DateTime.Now.AddMonths(-6) });
-            Contracts.Add(new Contract { Id = 2, ClientId = 1, PropertyId = 2, ContractDate = DateTime.Now.AddMonths(-3) });
-            Contracts.Add(new Contract { Id = 3, ClientId = 3, PropertyId = 3, ContractDate = DateTime.Now.AddMonths(-1) });
-            Contracts.Add(new Contract { Id = 4, ClientId = 4, PropertyId = 4, ContractDate = DateTime.Now.AddMonths(-2) });
-            Contracts.Add(new Contract { Id = 5, ClientId = 5, PropertyId = 5, ContractDate = DateTime.Now.AddMonths(-4) });
-            Contracts.Add(new Contract { Id = 6, ClientId = 6, PropertyId = 6, ContractDate = DateTime.Now.AddMonths(-5) });
-            Contracts.Add(new Contract { Id = 7, ClientId = 7, PropertyId = 7, ContractDate = DateTime.Now.AddMonths(-7) });
-            Contracts.Add(new Contract { Id = 8, ClientId = 8, PropertyId = 8, ContractDate = DateTime.Now.AddMonths(-8) });
-            Contracts.Add(new Contract { Id = 9, ClientId = 9, PropertyId = 9, ContractDate = DateTime.Now.AddMonths(-9) });
-            Contracts.Add(new Contract { Id = 10, ClientId = 10, PropertyId = 10, ContractDate = DateTime.Now.AddMonths(-10) });
+            Contracts.Add(new Contract { Id = 1, ClientId = 1, PropertyId = 1, ContractDate = DateTime.Now.AddMonths(-6), Client = GetClientById(1), Property = GetPropertyById(1) });
+            Contracts.Add(new Contract { Id = 2, ClientId = 1, PropertyId = 2, ContractDate = DateTime.Now.AddMonths(-3), Client = GetClientById(1), Property = GetPropertyById(2) });
+            Contracts.Add(new Contract { Id = 3, ClientId = 3, PropertyId = 3, ContractDate = DateTime.Now.AddMonths(-1), Client = GetClientById(3), Property = GetPropertyById(3) });
+            Contracts.Add(new Contract { Id = 4, ClientId = 4, PropertyId = 4, ContractDate = DateTime.Now.AddMonths(-2), Client = GetClientById(4), Property = GetPropertyById(4) });
+            Contracts.Add(new Contract { Id = 5, ClientId = 5, PropertyId = 5, ContractDate = DateTime.Now.AddMonths(-4), Client = GetClientById(5), Property = GetPropertyById(5) });
+            Contracts.Add(new Contract { Id = 6, ClientId = 6, PropertyId = 6, ContractDate = DateTime.Now.AddMonths(-5), Client = GetClientById(6), Property = GetPropertyById(6) });
+            Contracts.Add(new Contract { Id = 7, ClientId = 7, PropertyId = 7, ContractDate = DateTime.Now.AddMonths(-7), Client = GetClientById(7), Property = GetPropertyById(7) });
+            Contracts.Add(new Contract { Id = 8, ClientId = 8, PropertyId = 8, ContractDate = DateTime.Now.AddMonths(-8), Client = GetClientById(8), Property = GetPropertyById(8) });
+            Contracts.Add(new Contract { Id = 9, ClientId = 9, PropertyId = 9, ContractDate = DateTime.Now.AddMonths(-9), Client = GetClientById(9), Property = GetPropertyById(9) });
+            Contracts.Add(new Contract { Id = 10, ClientId = 10, PropertyId = 10, ContractDate = DateTime.Now.AddMonths(-10), Client = GetClientById(10), Property = GetPropertyById(10) });
 
             // Atualizando propriedades dos clientes com contratos
             foreach (var client in Clients)

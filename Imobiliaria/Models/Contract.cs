@@ -1,4 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Imobiliaria.Models.Enums;
 
 namespace Imobiliaria.Models
 {
@@ -12,5 +12,6 @@ namespace Imobiliaria.Models
         public DateTime ContractDate { get; set; }
         public DateTime? dateTime { get; set; }
 
+        public ContractState ContractState { get; set; }
     }
 }

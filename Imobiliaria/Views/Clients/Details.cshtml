@@ -60,9 +60,10 @@
             <thead class="table__header">
                 <tr class="table__row">
                     <th class="table__header-cell">Id</th>
-                    <th class="table__header-cell">Cliente Id</th>
-                    <th class="table__header-cell">Propriedade Id</th>
+                    <th class="table__header-cell">Cliente</th>
+                    <th class="table__header-cell">Propriedade</th>
                     <th class="table__header-cell">Data do Contrato</th>
+                    <th class="table__header-cell">Estado</th>
                 </tr>
             </thead>
             <tbody class="table__body">
@@ -70,9 +71,10 @@
                 {
                     <tr class="table__row">
                         <td class="table__cell">@contract.Id</td>
-                        <td class="table__cell">@contract.ClientId</td>
-                        <td class="table__cell">@contract.PropertyId</td>
+                        <td class="table__cell">@contract.Client.FullName</td>
+                        <td class="table__cell">@contract.Property.Address</td>
                         <td class="table__cell">@contract.ContractDate.ToShortDateString()</td>
+                        <td class="table__cell">@contract.ContractState</td>
                     </tr>
                 }
             </tbody>
