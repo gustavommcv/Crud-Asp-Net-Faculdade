@@ -74,11 +74,23 @@
             return Clients.SingleOrDefault(c => c.Id == id);
         }
 
+        //public void AddClient(Client client)
+        //{
+        //    Clients.Add(client);
+        //}
+
         public void AddClient(Client client)
         {
+            // Find the largest current ID
+            int nextId = Clients.Any() ? Clients.Max(c => c.Id) + 1 : 1;
+
+            // Assign the next ID to the new customer
+            client.Id = nextId;
+
+            // Add the new customer to the list
             Clients.Add(client);
         }
-
+        
         //public void RemoveClient(int id)
         //{
         //    var client = GetClientById(id);
