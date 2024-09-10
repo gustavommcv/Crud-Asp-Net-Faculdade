@@ -154,6 +154,15 @@ namespace Imobiliaria.Controllers
         [Route("[action]/{id:int}")]
         public IActionResult Delete(Client model)
         {
+            // Buscar contratos relacionados ao cliente
+            var contracts = _context.Contracts.Where(contract => contract.ClientId == model.Id).ToList();
+
+            // Atualizar o status dos contratos para "closed"
+            foreach (var contract in contracts)
+            {
+                contract.ContractState = ContractState.CLOSED;
+            }
+
             _context.RemoveClient(model.Id);
 
             return RedirectToAction("Index", "Home");
