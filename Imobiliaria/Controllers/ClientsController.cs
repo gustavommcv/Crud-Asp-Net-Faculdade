@@ -26,14 +26,21 @@ namespace Imobiliaria.Controllers
         [Route("[action]/{id:int}")]
         public IActionResult Details(int id)
         {
-
             var client = _context.Clients.FirstOrDefault(c => c.Id == id);
             if (client == null)
             {
                 return NotFound();
             }
 
-            return View(client);
+            var contracts = _context.Contracts.Where(c => c.ClientId == id).ToList();
+
+            var viewModel = new ClientDetailsViewModel
+            {
+                Client = client,
+                Contracts = contracts
+            };
+
+            return View(viewModel);
         }
 
         // Update
