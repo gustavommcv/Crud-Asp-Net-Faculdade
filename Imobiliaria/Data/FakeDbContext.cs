@@ -40,6 +40,13 @@
             Properties.Add(new Property { Id = 9, Address = "606 Pinecrest Dr", Price = 650000, ClientId = 9, Client = GetClientById(9) });
             Properties.Add(new Property { Id = 10, Address = "707 Willow Way", Price = 700000, ClientId = 10, Client = GetClientById(10) });
 
+            // Propriedades sem cliente associado
+            Properties.Add(new Property { Id = 11, Address = "808 Spruce St", Price = 750000, ClientId = 0 });
+            Properties.Add(new Property { Id = 12, Address = "909 Aspen Ct", Price = 800000, ClientId = 0 });
+            Properties.Add(new Property { Id = 13, Address = "1010 Fir Dr", Price = 850000, ClientId = 0 });
+            Properties.Add(new Property { Id = 14, Address = "1111 Redwood Blvd", Price = 900000, ClientId = 0 });
+            Properties.Add(new Property { Id = 15, Address = "1212 Cypress Ln", Price = 950000, ClientId = 0 });
+
             // Adicionando Contratos
             Contracts.Add(new Contract { Id = 1, ClientId = 1, PropertyId = 1, ContractDate = DateTime.Now.AddMonths(-6) });
             Contracts.Add(new Contract { Id = 2, ClientId = 1, PropertyId = 2, ContractDate = DateTime.Now.AddMonths(-3) });
@@ -67,16 +74,45 @@
             return Clients.SingleOrDefault(c => c.Id == id);
         }
 
+        //public void AddClient(Client client)
+        //{
+        //    Clients.Add(client);
+        //}
+
         public void AddClient(Client client)
         {
+            // Find the largest current ID
+            int nextId = Clients.Any() ? Clients.Max(c => c.Id) + 1 : 1;
+
+            // Assign the next ID to the new customer
+            client.Id = nextId;
+
+            // Add the new customer to the list
             Clients.Add(client);
         }
+        
+        //public void RemoveClient(int id)
+        //{
+        //    var client = GetClientById(id);
+        //    if (client != null)
+        //    {
+        //        Clients.Remove(client);
+        //    }
+        //}
 
         public void RemoveClient(int id)
         {
             var client = GetClientById(id);
             if (client != null)
             {
+                // Disassociates the client from their property
+                foreach (var property in Properties.Where(p => p.ClientId == id))
+                {
+                    property.ClientId = 0; // There is no clients with ID 0, so we can set 0 here
+                    property.Client = null;
+                }
+
+                // Remove o cliente
                 Clients.Remove(client);
             }
         }
