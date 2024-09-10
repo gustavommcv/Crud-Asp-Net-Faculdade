@@ -72,14 +72,33 @@
             Clients.Add(client);
         }
 
+        //public void RemoveClient(int id)
+        //{
+        //    var client = GetClientById(id);
+        //    if (client != null)
+        //    {
+        //        Clients.Remove(client);
+        //    }
+        //}
+
         public void RemoveClient(int id)
         {
             var client = GetClientById(id);
             if (client != null)
             {
+                // Disassociates the client from their property
+                foreach (var property in Properties.Where(p => p.ClientId == id))
+                {
+                    property.ClientId = 0; // There is no clients with ID 0, so we can set 0 here
+                    property.Client = null;
+                }
+
+                // Remove o cliente
                 Clients.Remove(client);
             }
         }
+
+
 
         public Property GetPropertyById(int id)
         {

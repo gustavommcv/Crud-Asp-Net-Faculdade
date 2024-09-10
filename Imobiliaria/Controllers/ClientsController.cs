@@ -83,20 +83,13 @@ namespace Imobiliaria.Controllers
             return View(client);
         }
 
-
-        // Delete (POST)
+        // (using POST for simplicity in this case)
         [HttpPost]
         [Route("[action]/{id:int}")]
-        [ValidateAntiForgeryToken]
-        public IActionResult DeleteConfirmed(int id)
+        public IActionResult Delete(Client model)
         {
-            var client = _context.Clients.FirstOrDefault(c => c.Id == id);
-            if (client == null)
-            {
-                return NotFound();
-            }
+            _context.RemoveClient(model.Id);
 
-            _context.Clients.Remove(client);
             return RedirectToAction("Index", "Home");
         }
 
