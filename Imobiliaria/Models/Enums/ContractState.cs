@@ -2,7 +2,7 @@
 {
     public enum ContractState
     {
-        OPEN,
+        ACTIVE,
         CLOSED
     }
 }

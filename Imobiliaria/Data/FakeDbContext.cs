@@ -160,6 +160,12 @@
 
         public void AddContract(Contract contract)
         {
+            // Find the largest current ID
+            int nextId = Contracts.Any() ? Contracts.Max(c => c.Id) + 1 : 1;
+
+            // Assign the next ID to the new customer
+            contract.Id = nextId;
+
             Contracts.Add(contract);
         }
 
