@@ -1,7 +1,13 @@
-﻿namespace Imobiliaria.Models {
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace Imobiliaria.Models {
     public class Property {
         public int Id { get; set; }
+
+        [Required(ErrorMessage = "The Address of property is required")]
         public string? Address { get; set; }
+
+        [Required(ErrorMessage = "The Price of property is required")]
         public decimal Price { get; set; }
         public int? ClientId { get; set; }
         public Client? Client { get; set; }
