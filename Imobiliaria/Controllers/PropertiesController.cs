@@ -63,15 +63,26 @@ namespace Imobiliaria.Controllers
         [Route("[action]/{id:int}")]
         public IActionResult Edit(int id) 
         {
-            Console.WriteLine(id);
-            return View();
+            var property = _context.Properties.FirstOrDefault(x => x.Id == id);
+            return View(property);
         }
 
-        // (using POST for simplicity in this case)
         [HttpPost]
         [Route("[action]/{id:int}")]
         public IActionResult Edit(Property model)
         {
+            if (ModelState.IsValid)
+            {
+                var property = _context.Properties.FirstOrDefault(p => p.Id == model.Id);
+                if (property != null)
+                {
+                    property.Address = model.Address;
+                    property.Price = model.Price;
+
+                    return RedirectToAction("Details", new { id = property.Id });
+                }
+                return NotFound();
+            }
             return View(model);
         }
 
