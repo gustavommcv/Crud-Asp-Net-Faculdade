@@ -1,4 +1,5 @@
 ﻿using Imobiliaria.Models;
+using Imobiliaria.Models.Enums;
 using Imobiliaria.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 
@@ -118,6 +119,20 @@ namespace Imobiliaria.Controllers
             property.ClientId = client.Id;
             property.Client = client;
 
+            // Generates a new contract
+            var newContract = new Contract
+            {
+                ClientId = client.Id,
+                Client = client,
+                PropertyId = property.Id,
+                Property = property,
+                ContractDate = DateTime.Now,
+                ContractState = ContractState.ACTIVE
+            };
+
+            // Adds the contract to the context
+            _context.AddContract(newContract);
+
             return RedirectToAction("Index", "Home");
         }
 
@@ -139,6 +154,15 @@ namespace Imobiliaria.Controllers
         [Route("[action]/{id:int}")]
         public IActionResult Delete(Client model)
         {
+            // Search for contracts related to the client
+            var contracts = _context.Contracts.Where(contract => contract.ClientId == model.Id).ToList();
+
+            // Update the status of contracts to "closed"
+            foreach (var contract in contracts)
+            {
+                contract.ContractState = ContractState.CLOSED;
+            }
+
             _context.RemoveClient(model.Id);
 
             return RedirectToAction("Index", "Home");
