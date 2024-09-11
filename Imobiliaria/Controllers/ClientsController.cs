@@ -118,7 +118,6 @@ namespace Imobiliaria.Controllers
             client.Properties.Add(property);
             property.ClientId = client.Id;
             property.Client = client;
-
             // Generates a new contract
             var newContract = new Contract
             {
@@ -129,9 +128,9 @@ namespace Imobiliaria.Controllers
                 ContractDate = DateTime.Now,
                 ContractState = ContractState.ACTIVE
             };
-
             // Adds the contract to the context
             _context.AddContract(newContract);
+            property.Contract = newContract;
 
             return RedirectToAction("Index", "Home");
         }

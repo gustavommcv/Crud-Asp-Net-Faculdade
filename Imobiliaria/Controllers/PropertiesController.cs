@@ -50,7 +50,7 @@ namespace Imobiliaria.Controllers
                 return NotFound();
             }
 
-            var contracts = _context.Contracts.Where(p => p.Id == id).ToList();
+            var contracts = _context.Contracts.Where(p => p.Id == property.Contract.Id).ToList();
 
             var viewModel = new PropertyDetailsViewModel
             {
