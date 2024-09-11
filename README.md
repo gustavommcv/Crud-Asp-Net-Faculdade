@@ -49,12 +49,12 @@ Adotamos a arquitetura **MVC (Model-View-Controller)**:
 
 2. **Delete**  
    - Entrada: ID do cliente  
-   - Saída: Visualizacao sem o cliente na lista (retirada de um cliente da lista e o fechamento daquele contrato relacinado, caso tenha um.)
+   - Saída: Visualização sem o cliente na lista (retirada de um cliente da lista e o fechamento daquele contrato relacinado, caso tenha um.)
 ![image](https://github.com/user-attachments/assets/16545309-83db-424d-ac39-8d149a996f31)
 
 3. **Edit**  
    - Entrada: ID do cliente  
-   - Saída: Visualizacao dos detalhes do cliente atualizados
+   - Saída: Visualização dos detalhes do cliente atualizados
 ![image](https://github.com/user-attachments/assets/ecf6e1a9-12b3-4e77-a327-ca391fcc104d)
 
 4. **Details**  
@@ -64,7 +64,7 @@ Adotamos a arquitetura **MVC (Model-View-Controller)**:
 
 5. **LinkProperty**  
    - Entrada: ID do cliente, Lista das Propriedades  
-   - Saída: Visualizacao dos detalhes do cliente com nova propriedade vinculada (e criacao de um contrato)
+   - Saída: Visualização dos detalhes do cliente com nova propriedade vinculada (e criacao de um contrato)
 ![image](https://github.com/user-attachments/assets/d50d1ca4-a0ff-41fa-99e3-faaae2beec63)
 
 ### Property
@@ -75,12 +75,12 @@ Adotamos a arquitetura **MVC (Model-View-Controller)**:
 
 2. **Delete**  
    - Entrada: ID da propriedade  
-   - Saída: Visualizacao sem a propriedade na lista (fechamento de seu contrato relacinado, caso tenha um.)
+   - Saída: Visualização sem a propriedade na lista (fechamento de seu contrato relacinado, caso tenha um.)
 ![image](https://github.com/user-attachments/assets/900ee2cd-bc59-45aa-8a34-2767b1c2c1e0)
 
 3. **Edit**  
    - Entrada: ID da propriedade  
-   - Saída: Visualizacao dos detalhes da propriedade atualizados
+   - Saída: Visualização dos detalhes da propriedade atualizados
 ![image](https://github.com/user-attachments/assets/331c0f0e-d91f-4252-b3be-8b5026aaeb77)
 
 4. **Details**  
@@ -95,12 +95,12 @@ Adotamos a arquitetura **MVC (Model-View-Controller)**:
 
 2. **Delete**  
    - Entrada: ID do contrato  
-   - Saída: Visualizacao sem o contrato na lista (Desvincularização da propriedade e o cliente de mesmo contrato)
+   - Saída: Visualização sem o contrato na lista (Desvincularização da propriedade e o cliente de mesmo contrato)
 ![image](https://github.com/user-attachments/assets/6dc25535-489f-47cb-95b3-714033654a17)
 
 3. **Edit**  
    - Entrada: ID do contrato  
-   - Saída: Visualizacao dos detalhes do contrato atualizados
+   - Saída: Visualização dos detalhes do contrato atualizados
 ![image](https://github.com/user-attachments/assets/22c91101-04ab-4af1-94dc-1649ae40bcad)
 
 4. **Details**  
