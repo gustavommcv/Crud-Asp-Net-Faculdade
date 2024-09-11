@@ -13,31 +13,6 @@ namespace Imobiliaria.Controllers
             _context = context;
         }
 
-        // Create
-        [HttpGet]
-        [Route("[action]")]
-        public IActionResult Create()
-        {
-            return View();
-        }
-
-        [HttpPost]
-        [Route("[action]")]
-        public IActionResult Create(Contract model)
-        {
-            if (ModelState.IsValid)
-            {
-                // Adds the new client to the context
-                _context.AddContract(model);
-
-                // Redirects to customer list or home page after success
-                return RedirectToAction("Index", "Home");
-            }
-
-            // If the model is not valid, it returns to the creation view with the current data
-            return View(model);
-        }
-
         // Read
         [Route("[action]/{id:int}")]
         public IActionResult Details(int id)
