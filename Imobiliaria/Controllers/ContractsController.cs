@@ -69,15 +69,24 @@ namespace Imobiliaria.Controllers
             {
                 return NotFound();
             }
+            
 
             return View(contract);
         }
 
         [HttpPost]
         [Route("[action]/{id:int}")]
-        public IActionResult Delete(Contract model)
+        public IActionResult Delete(int id, int propertyId, int clientId)
         {
-            _context.RemoveContract(model.Id);
+
+            Client client = _context.GetClientById(clientId);
+            Property property = _context.GetPropertyById(propertyId);
+
+            client.Properties.Remove(property);
+            property.Client = null;
+            property.ClientId = null;
+
+            _context.RemoveContract(id);
 
             return RedirectToAction("Index", "Home");
         }
