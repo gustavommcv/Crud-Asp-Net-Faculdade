@@ -38,61 +38,75 @@ Adotamos a arquitetura **MVC (Model-View-Controller)**:
    - Saída:  
      - `Client`: Id, FullName, Email  
      - `Property`: Id, Address, Price  
-     - `Contract`: Id, ClientId, PropertyId, ContractDate  
+     - `Contract`: Id, ClientId, PropertyId, ContractDate
+![image](https://github.com/user-attachments/assets/aa801597-022f-4f43-b990-261c6289c59a)
 
 ### Client
 1. **Create**  
    - Entrada: FirstName, LastName, Email  
    - Saída: Visualização com o novo cliente na lista  
+![image](https://github.com/user-attachments/assets/1f64a246-5feb-46b2-8a0c-603603487f72)
 
 2. **Delete**  
    - Entrada: ID do cliente  
    - Saída: Visualizacao sem o cliente na lista (retirada de um cliente da lista e o fechamento daquele contrato relacinado, caso tenha um.)
+![image](https://github.com/user-attachments/assets/16545309-83db-424d-ac39-8d149a996f31)
 
 3. **Edit**  
    - Entrada: ID do cliente  
    - Saída: Visualizacao dos detalhes do cliente atualizados
+![image](https://github.com/user-attachments/assets/ecf6e1a9-12b3-4e77-a327-ca391fcc104d)
 
 4. **Details**  
    - Entrada: ID do cliente  
    - Saída: Visualização completa dos dados do cliente, propriedades e contratos  
+![image](https://github.com/user-attachments/assets/9c19918e-8305-43e9-8fed-9e2818ba8aa1)
 
 5. **LinkProperty**  
    - Entrada: ID do cliente, Lista das Propriedades  
    - Saída: Visualizacao dos detalhes do cliente com nova propriedade vinculada (e criacao de um contrato)
+![image](https://github.com/user-attachments/assets/d50d1ca4-a0ff-41fa-99e3-faaae2beec63)
 
 ### Property
 1. **Create**  
    - Entrada: Address, Price  
    - Saída:Visualização com o nova propriedade na lista
+![image](https://github.com/user-attachments/assets/5985c417-430e-4410-a5e2-3a7337c383bc)
 
 2. **Delete**  
    - Entrada: ID da propriedade  
    - Saída: Visualizacao sem a propriedade na lista (fechamento de seu contrato relacinado, caso tenha um.)
+![image](https://github.com/user-attachments/assets/900ee2cd-bc59-45aa-8a34-2767b1c2c1e0)
 
 3. **Edit**  
    - Entrada: ID da propriedade  
    - Saída: Visualizacao dos detalhes da propriedade atualizados
+![image](https://github.com/user-attachments/assets/331c0f0e-d91f-4252-b3be-8b5026aaeb77)
 
 4. **Details**  
    - Entrada: ID da propriedade  
    - Saída: Visualização completa dos dados da propriedade e contratos relacionados  
+![image](https://github.com/user-attachments/assets/69055a31-d3ac-416e-85a3-284b56d40a76)
 
 ### Contract
 1. **Create**  
    - Um contrato pode ser criado a partir dos detalhes do cliente usando o Link Property (Vincular propriedade)
+![image](https://github.com/user-attachments/assets/6c8f3658-cb49-46a4-a170-7c886bfa2cee)
 
 2. **Delete**  
    - Entrada: ID do contrato  
    - Saída: Visualizacao sem o contrato na lista (Desvincularização da propriedade e o cliente de mesmo contrato)
+![image](https://github.com/user-attachments/assets/6dc25535-489f-47cb-95b3-714033654a17)
 
 3. **Edit**  
    - Entrada: ID do contrato  
    - Saída: Visualizacao dos detalhes do contrato atualizados
+![image](https://github.com/user-attachments/assets/22c91101-04ab-4af1-94dc-1649ae40bcad)
 
 4. **Details**  
    - Entrada: --  
    - Saída: Visualização completa dos dados do contrato  
+![image](https://github.com/user-attachments/assets/0977d7c9-5215-4587-8c45-dc84d427d5c0)
 
 ---
 
