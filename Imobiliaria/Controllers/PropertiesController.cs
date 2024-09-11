@@ -28,6 +28,8 @@ namespace Imobiliaria.Controllers
         public IActionResult Create(Property model) {
             if (ModelState.IsValid) {
                 // Adds the new client to the context
+                model.Client = null;
+                model.ClientId = 0;
                 _context.AddProperty(model);
 
                 // Redirects to customer list or home page after success
