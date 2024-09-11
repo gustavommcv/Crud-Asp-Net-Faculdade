@@ -49,15 +49,15 @@ namespace Imobiliaria.Controllers
             {
                 return NotFound();
             }
-
-            var contracts = _context.Contracts.Where(p => p.Id == property.Contract.Id).ToList();
-
+            int contractId = property.Contract?.Id ?? id;
+            var contracts = _context.Contracts
+                        .Where(p => p.Id == contractId)
+                        .ToList();
             var viewModel = new PropertyDetailsViewModel
             {
                 Property = property,
                 Contracts = contracts
             };
-
             return View(viewModel);
         }
 

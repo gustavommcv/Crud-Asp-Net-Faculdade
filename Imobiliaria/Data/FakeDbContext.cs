@@ -29,7 +29,7 @@
             Clients.Add(new Client { Id = 10, FirstName = "Olivia", LastName = "Thomas", Email = "olivia.thomas@example.com" });
 
             // Adding Properties
-            Properties.Add(new Property { Id = 1, Address = "123 Main St", Price = 250000, ClientId = 1, Client= GetClientById(1) });
+            Properties.Add(new Property { Id = 1, Address = "123 Main St", Price = 250000, ClientId = 1, Client= GetClientById(1)});
             Properties.Add(new Property { Id = 2, Address = "456 Maple Ave", Price = 300000, ClientId = 1, Client = GetClientById(1) });
             Properties.Add(new Property { Id = 3, Address = "789 Oak Dr", Price = 350000, ClientId = 3, Client = GetClientById(3) });
             Properties.Add(new Property { Id = 4, Address = "101 Pine Rd", Price = 400000, ClientId = 4, Client = GetClientById(4) });
@@ -64,6 +64,17 @@
             {
                 client.Properties = Properties.Where(p => p.ClientId == client.Id).ToList();
             }
+            foreach (var property in Properties)
+            {
+                foreach (var contract in Contracts) 
+                { 
+                    if (contract.PropertyId == property.Id)
+                    {
+                        property.Contract = contract;
+                    }
+                }
+            }
+
         }
 
 
