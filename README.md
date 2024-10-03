@@ -1,10 +1,5 @@
 # Fundamentos de Sistema de Informação
 
-## Nome:
-- Enzo Monnerat Martins Bravo Marquet
-- Bernardo Castro Barros
-- Juan Fagundes Knupp
-
 ## Projeto: Sistema Imobiliário
 
 ### O que?
